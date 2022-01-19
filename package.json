@@ -1,0 +1,36 @@
+{
+  "name": "ava-bot",
+  "version": "1.0.0",
+  "description": "ava discord bot",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "npx tsc -b ./tsconfig.json",
+    "start:dev": "ts-node-dev --respawn --transpile-only --poll src/index.ts",
+    "start:prod": "npx tsc -b ./tsconfig.json && node ./dist/index.js",
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hokanosekai/ava-bot.git"
+  },
+  "keywords": [],
+  "author": "Hokanosekai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hokanosekai/ava-bot/issues"
+  },
+  "homepage": "https://github.com/Hokanosekai/ava-bot#readme",
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "discord.js": "^13.6.0",
+    "dotenv": "^14.2.0",
+    "mysql2": "^2.3.3",
+    "npm-check": "^5.9.2",
+    "process": "^0.11.10",
+    "promisify": "^0.0.3",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "typeorm": "^0.2.41",
+    "typescript": "^4.5.4"
+  }
+}

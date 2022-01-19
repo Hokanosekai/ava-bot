@@ -1,0 +1,23 @@
+{
+  "type": "mysql",
+  "host": "127.0.0.1",
+  "port": 3306,
+  "username": "root",
+  "password": "",
+  "database": "ava_bot",
+  "charset": "utf8mb4_bin",
+  "autoLoadEntities": true,
+  "synchronize": true,
+  "logging": true,
+  "migrationsRun": true,
+  "entities": [
+    "src/database/entities/**/*{.ts,.js}"
+  ],
+  "migrations": [
+    "src/database/migrations/**/*{.ts,.js}"
+  ],
+  "cli": {
+    "entitiesDir": "src/database/entities",
+    "migrationsDir": "src/database/migrations"
+  }
+}
