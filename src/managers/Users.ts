@@ -1,6 +1,7 @@
 import {Collection} from "discord.js";
 import {User} from "../database/entities";
 import {client} from "../index";
+import {Logger} from "../utils";
 
 export class UsersManager {
 
@@ -10,14 +11,14 @@ export class UsersManager {
 
     }
 
-    async fetch(discordID: string) {
-        if (!this._cache.has(discordID))
-            this._cache.set(discordID, (await client.database.users.findOne({
+    async fetch(discordId: string) {
+        if (!this._cache.has(discordId))
+            this._cache.set(discordId, (await client.database.users.findOne({
                 where: [
-                    {_discord_id: discordID}
+                    {discordId}
                 ]
             })));
-        return this._cache.get(discordID);
+        return this._cache.get(discordId);
     }
 
     get cache(): Collection<string, User> {

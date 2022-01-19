@@ -13,6 +13,7 @@ import {Event} from "./Event";
 import {Logger} from "../utils";
 import {CommandType, ConfigType} from "../typings";
 import {DataBase} from "../managers";
+import {UsersManager} from "../managers/Users";
 
 const globPromise = promisify(glob);
 
@@ -21,6 +22,8 @@ export class ExtendedClient extends Client {
     database: DataBase = new DataBase();
 
     commands: Collection<string, CommandType> = new Collection<string, CommandType>();
+
+    dbUsers: UsersManager = new UsersManager();
 
     config: ConfigType = {
         ids: process.env.APP_ENV === 'dev'? ConfigJson.dev : ConfigJson.live,
@@ -42,7 +45,6 @@ export class ExtendedClient extends Client {
 
         this.login(process.env.TOKEN).then(async () => {
 
-            Logger.test(this.database)
         });
     }
 

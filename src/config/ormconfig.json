@@ -8,7 +8,7 @@
   "charset": "utf8mb4_bin",
   "autoLoadEntities": true,
   "synchronize": true,
-  "logging": true,
+  "logging": false,
   "migrationsRun": true,
   "entities": [
     "src/database/entities/**/*{.ts,.js}"

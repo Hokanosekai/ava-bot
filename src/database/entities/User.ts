@@ -1,17 +1,13 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 import {client} from "../../index";
 import {Logger} from "../../utils";
 
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn({
-        name: 'id'
-    })
-    id: number;
-
-    @Column({
+    @PrimaryColumn({
         name: 'discord_id',
+        unique: true,
         nullable: false
     })
     discordId: string;
@@ -23,16 +19,23 @@ export class User {
     discordTag: string;
 
     @Column({
+        name: 'discord_name',
+        nullable: false
+    })
+    discordName: string;
+
+    @Column({
         name: 'points',
         nullable: false,
         default: 0
     })
     points: number;
 
-    setId(value: number) {
-        this.id = value;
-        return this;
-    }
+    @Column({
+        name: 'guilde',
+        nullable: false
+    })
+    guilde: string
 
     setDiscordId(value: string) {
         this.discordId = value;
@@ -44,14 +47,34 @@ export class User {
         return this;
     }
 
+    setDiscordName(value: string) {
+        this.discordName = value;
+        return this;
+    }
+
     setPoints(value: number) {
         this.points = value;
         return this;
     }
 
-    async create() {
+    addPoints(value: number) {
+        this.points += value;
+        return this;
+    }
+
+    removePoints(value: number) {
+        this.points -= value;
+        return this;
+    }
+
+    setGuilde(value: string) {
+        this.guilde = value;
+        return this;
+    }
+
+    async update() {
         try {
-            return await client.database.users.save(this, {reload: true});
+            return await client.database.users.save(this);
         } catch (e) {
             Logger.error(e);
         }

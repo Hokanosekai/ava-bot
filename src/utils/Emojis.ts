@@ -31,5 +31,15 @@ export enum Emojis {
     LANG_FR = ':flag_fr:',
     LANG_EN = ':flag_gb:',
 
-    ALL = '<:A_:850186115742695436>'
+    ALL = '<:A_:850186115742695436>',
+
+    HOUR = "⏰",
+    ANNOUNCE = "📢",
+    ZAAP = "<:Zaap:845441800906473472> ",
+    ZONE = "<:pipite:872819598960001084>",
+    MAP = "<a:DE_ArrowJoin:826485704703868959>",
+    POINTS = "<:Kolizeton:890899604789424138>",
+
+    YES = "<:Oui:861300266125099019>",
+    NO = "<:Non:861300266032562206>"
 }
